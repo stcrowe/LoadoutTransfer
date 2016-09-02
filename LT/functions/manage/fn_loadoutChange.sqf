@@ -23,8 +23,11 @@ switch (parseNumber _loadoutNumber) do
 		_control lbAdd "Down";
 		_control lbSetData[(lbSize _control)-1,"down"];
 
-		_control lbAdd "Edit";
-		_control lbSetData[(lbSize _control)-1,"edit"];
+		if (player getVariable ["LT_ArsenalTmp", true]) then
+		{
+			_control lbAdd "Edit";
+			_control lbSetData[(lbSize _control)-1,"edit"];
+		};
 
 		_control lbAdd "Delete";
 		_control lbSetData[(lbSize _control)-1,"delete"];
@@ -39,9 +42,11 @@ switch (parseNumber _loadoutNumber) do
 		_control lbAdd "Up";
 		_control lbSetData[(lbSize _control)-1,"up"];
 
-		_control lbAdd "Edit";
-		_control lbSetData[(lbSize _control)-1,"edit"];
-
+		if (player getVariable ["LT_ArsenalTmp", true]) then
+		{
+			_control lbAdd "Edit";
+			_control lbSetData[(lbSize _control)-1,"edit"];
+		};
 		_control lbAdd "Delete";
 		_control lbSetData[(lbSize _control)-1,"delete"];
 
@@ -58,9 +63,11 @@ switch (parseNumber _loadoutNumber) do
 		_control lbAdd "Down";
 		_control lbSetData[(lbSize _control)-1,"down"];
 
-
-		_control lbAdd "Edit";
-		_control lbSetData[(lbSize _control)-1,"edit"];
+		if (player getVariable ["LT_ArsenalTmp", true]) then
+		{
+			_control lbAdd "Edit";
+			_control lbSetData[(lbSize _control)-1,"edit"];
+		};
 
 		_control lbAdd "Delete";
 		_control lbSetData[(lbSize _control)-1,"delete"];

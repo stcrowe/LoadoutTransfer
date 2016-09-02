@@ -10,10 +10,10 @@ if(!createDialog "LT_LoadoutMenu") exitWith {hint "Couldn't open the loadout men
 
 
 //Get tags and list them
-_control = ((findDisplay 2580) displayCtrl 2803);
+//_control = ((findDisplay 2580) displayCtrl 2803);
 
-_control lbAdd "All";
-_control lbSetCurSel 0;
+//_control lbAdd "All";
+//_control lbSetCurSel 0;
 
 //Fill the loadouts and list them.
 

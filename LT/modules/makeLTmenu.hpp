@@ -17,6 +17,8 @@ class LT_settings: Module_F
 	scope = 2;
 	icon = "\loadoutTransfer\LT\images\LT.paa";
 	displayName = "Loadout Transfer Settings";
+	isGlobal = 1;
+	is3DEN = 0;
 
 	class Eventhandlers
 	{
@@ -25,42 +27,97 @@ class LT_settings: Module_F
 
 	class Arguments
 	{
-	      class transferDistance
-	      {
-	        	displayName = "Transfer Distance";
-	  			description = "How far (in meters) do two player need to be to show up in the transfer menu?";
-	  			typeName = "NUMBER";
+			class transferDistance
+		  {
+		    	displayName = "Transfer Distance";
+					description = "How far (in meters) do two player need to be to show up in the transfer menu?";
+					typeName = "NUMBER";
 				defaultValue = 20;
-	      };
+		  };
 
-	      class loadRespawn
-	      {
-	        displayName = "Show Loadout Menu At Respawn";
-	  			description = "If enabled, then after a player respawns they can choose a loadout to load.";
-	  			typeName = "BOOL";
+		  class loadRespawn
+		  {
+		    displayName = "Show Loadout Menu At Respawn";
+					description = "If enabled, then after a player respawns they can choose a loadout to load.";
 
-	  			class values
-	  			{
-	  				class disable
-	  				{
-	  					name = "Disable";
-	  					value = false;
-	  					default = 1;
-	  				};
+					class values
+					{
+						class disable
+						{
+							name = "Disable";
+							value = false;
+							default = 1;
+						};
 
-	  				class enable
-	  				{
-	  					name = "Enable";
-	  					value = true;
-	  				};
-	  			};
-	      };
+						class enable
+						{
+							name = "Enable";
+							value = true;
+						};
+					};
+		  };
 
-      	class load
+			class respawn_infor
+			{
+			    displayName = "";
+			    class values
+			    {
+			            class divider
+			            {
+			                    name = "----- Options Ror Resawn Menu ------------------------------------------------";
+			                    value = "";
+			            };
+			    };
+			};
+
+      	class loadPersonal
 		{
-			displayName = "Allow Loading";
+			displayName = "Allow Loading Personal";
 			description = "Menu will allow the player to load their personal loadouts.";
-			typeName = "BOOL";
+
+			class values
+			{
+				class disable
+				{
+					name = "Disable";
+					value = false;
+				};
+
+				class enable
+				{
+					name = "Enable";
+					value = true;
+					default = 1;
+				};
+			};
+		};
+
+		class loadMission
+		{
+			displayName = "Allow Loading Mission";
+			description = "Menu will allow the player to load mission loadouts (if any are defined).";
+
+			class values
+			{
+				class disable
+				{
+					name = "Disable";
+					value = false;
+				};
+
+				class enable
+				{
+					name = "Enable";
+					value = true;
+					default = 1;
+				};
+			};
+		};
+
+		class loadServer
+		{
+			displayName = "Allow Loading Server";
+			description = "Menu will allow the player to load server loadouts (if any are defined).";
 
 			class values
 			{
@@ -83,7 +140,6 @@ class LT_settings: Module_F
       {
         displayName = "Allow Transfer";
   			description = "Menu will allow the player to transfer their personal loadouts to other players.";
-  			typeName = "BOOL";
 
   			class values
   			{
@@ -107,7 +163,6 @@ class LT_settings: Module_F
 		{
 			displayName = "Allow Arsenal";
 			description = "Menu will allow players to access to the arsenal.";
-			typeName = "BOOL";
 
 			class values
 			{
@@ -130,30 +185,6 @@ class LT_settings: Module_F
 		{
 			displayName = "Allow Manage Loadouts";
 			description = "Menu will allow players to mangae their personal loadouts (also gives them access to arsenal).";
-			typeName = "BOOL";
-
-			class values
-			{
-				class disable
-				{
-					name = "Disable";
-					value = false;
-				};
-
-				class enable
-				{
-					name = "Enable";
-					value = true;
-					default = 1;
-				};
-			};
-		};
-
-		class server
-		{
-			displayName = "Allow Server Loadouts";
-			description = "Menu will allow players to load loadouts saved to the server.";
-			typeName = "BOOL";
 
 			class values
 			{
@@ -174,9 +205,8 @@ class LT_settings: Module_F
 
 		class admin
 		{
-			displayName = "Allow Admin Menu";
+			displayName = "Allow Admin Options";
 			description = "Menu will allow the server admin to access the admin menu.";
-			typeName = "BOOL";
 
 			class values
 			{
@@ -208,6 +238,8 @@ class LT_makeLTmenu: Module_F
 	scope = 2;
 	icon = "\loadoutTransfer\LT\images\LT.paa";
 	displayName = "Loadout Transfer Menu";
+	isGlobal = 1;
+	is3DEN = 0;
 
 	class Eventhandlers
 	{
@@ -217,11 +249,54 @@ class LT_makeLTmenu: Module_F
 	class Arguments
 	{
 
-		class load
+		class loadPersonal
 		{
-			displayName = "Allow Loading";
+			displayName = "Allow Loading Personal";
 			description = "Menu will allow the player to load their personal loadouts.";
-			typeName = "BOOL";
+
+			class values
+			{
+				class disable
+				{
+					name = "Disable";
+					value = false;
+				};
+
+				class enable
+				{
+					name = "Enable";
+					value = true;
+					default = 1;
+				};
+			};
+		};
+
+		class loadMission
+		{
+			displayName = "Allow Loading Mission";
+			description = "Menu will allow the player to load mission loadouts (if any are defined).";
+
+			class values
+			{
+				class disable
+				{
+					name = "Disable";
+					value = false;
+				};
+
+				class enable
+				{
+					name = "Enable";
+					value = true;
+					default = 1;
+				};
+			};
+		};
+
+		class loadServer
+		{
+			displayName = "Allow Loading Server";
+			description = "Menu will allow the player to load server loadouts (if any are defined).";
 
 			class values
 			{
@@ -244,8 +319,6 @@ class LT_makeLTmenu: Module_F
       {
         displayName = "Allow Transfer";
   			description = "Menu will allow the player to transfer their personal loadouts to other players.";
-  			typeName = "BOOL";
-
   			class values
   			{
   				class disable
@@ -268,7 +341,6 @@ class LT_makeLTmenu: Module_F
 		{
 			displayName = "Allow Arsenal";
 			description = "Menu will allow players to access to the arsenal.";
-			typeName = "BOOL";
 
 			class values
 			{
@@ -291,30 +363,6 @@ class LT_makeLTmenu: Module_F
 		{
 			displayName = "Allow Manage Loadouts";
 			description = "Menu will allow players to mangae their personal loadouts (also gives them access to arsenal).";
-			typeName = "BOOL";
-
-			class values
-			{
-				class disable
-				{
-					name = "Disable";
-					value = false;
-				};
-
-				class enable
-				{
-					name = "Enable";
-					value = true;
-					default = 1;
-				};
-			};
-		};
-
-		class server
-		{
-			displayName = "Allow Server Loadouts";
-			description = "Menu will allow players to load loadouts saved to the server.";
-			typeName = "BOOL";
 
 			class values
 			{
@@ -337,7 +385,7 @@ class LT_makeLTmenu: Module_F
 		{
 			displayName = "Allow Admin Menu";
 			description = "Menu will allow the server admin to access the admin menu.";
-			typeName = "BOOL";
+
 
 			class values
 			{
@@ -359,7 +407,7 @@ class LT_makeLTmenu: Module_F
 	};
 	class ModuleDescription: ModuleDescription
 	{
-		description = "Set player(s) as commanders, giving them the ability to control groups of AI";
+		description = "Adds a Loadout Transfer menu to synced objects.";
 		sync[] = {"Anything"};
 
 		class Anything

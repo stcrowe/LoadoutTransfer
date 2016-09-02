@@ -21,6 +21,7 @@ disableSerialization;
 if(!createDialog "LT_MainMenu") exitWith {hint "Couldn't open the loadout menu?"};
 
 _showLoad = false;
+player setVariable ["LT_ArsenalTmp", _arsenal];
 
 
 if (typeName _load == typeName true) then

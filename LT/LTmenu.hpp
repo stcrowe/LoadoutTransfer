@@ -191,14 +191,14 @@ class LT_LoadoutMenu
 					h = 0.04;
 				};
 
-				class RscCombo_2102: LT_RscCombo
+				/*class RscCombo_2102: LT_RscCombo
 				{
 					idc = 2803;
 					x = 0.25;
 					y = 0.24;
 					w = 0.5;
 					h = 0.04;
-				};
+				};*/
 
 				class LoadoutList : LT_RscListBox
 				{
@@ -206,7 +206,7 @@ class LT_LoadoutMenu
 					text = "";
 					sizeEx = 0.035;
 					canDrag = 1;
-					x = 0.26; y = 0.30;
+					x = 0.26; y = 0.26;
 					w = 0.47; h = 0.45;
 					onLBDblClick = "[] call LT_fnc_loadLoadout";
 				};
@@ -635,7 +635,7 @@ class LT_MainMenu
 		{
 			colorBackground[] = { 0, 0, 0, 0.7 };
 			idc = -1;
-			text = "loadoutTransfer\LT\images\LT.paa";
+			text = "LT\images\LT.paa";
 
 			x = 0.33;
 			y = 0.3;

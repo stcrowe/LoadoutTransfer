@@ -18,6 +18,13 @@ class LT
 		class arsenal {};
 	};
 
+	class general
+	{
+		file = "LT\functions\general";
+
+		class StrToBool {};
+	};
+
 	class kron
 	{
 		file = "LT\functions\kron";
