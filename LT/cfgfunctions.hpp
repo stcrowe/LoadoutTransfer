@@ -23,6 +23,7 @@ class LT
 		file = "LT\functions\general";
 
 		class StrToBool {};
+		class getAll {};
 	};
 
 	class kron
