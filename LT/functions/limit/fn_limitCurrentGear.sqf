@@ -44,6 +44,9 @@ if (!(isNull _virtualBox)) then
 	_magazines = _virtualBox call BIS_fnc_getVirtualMagazineCargo;
 	_backpacks = _virtualBox call BIS_fnc_getVirtualBackpackCargo;
 
+	copyToClipboard format ["%1 : %2", _magazines, _weapons];
+	hint "copied";
+
 
 	// Get unit's items
 	_backItems = backpackItems _unit;
@@ -123,7 +126,7 @@ if (!(isNull _virtualBox)) then
 
 
 	{
-		if (!(_x in _items) OR  !(_x in _weapons) OR !(_x in _magazines) OR !(_x in _backpacks)) then
+		if (!(_x in _items) AND  !(_x in _weapons) AND !(_x in _magazines) AND !(_x in _backpacks)) then
 		{
 			_unit removeItemFromBackpack _x;
 			_message = true
@@ -131,17 +134,17 @@ if (!(isNull _virtualBox)) then
 	} forEach _backItems;
 
 	{
-		if (!(_x in _items) OR  !(_x in _weapons) OR !(_x in _magazines) OR !(_x in _backpacks)) then
+		if (!(_x in _items) AND  !(_x in _weapons) AND !(_x in _magazines) AND !(_x in _backpacks)) then
 		{
-			_unit removeItemFromBackpack _x;
+			_unit removeItemFromUniform _x;
 			_message = true
 		};
 	} forEach _uniItems;
 
 	{
-		if (!(_x in _items) OR  !(_x in _weapons) OR !(_x in _magazines) OR !(_x in _backpacks)) then
+		if (!(_x in _items) AND  !(_x in _weapons) AND !(_x in _magazines) AND !(_x in _backpacks)) then
 		{
-			_unit removeItemFromBackpack _x;
+			_unit removeItemFromVest _x;
 			_message = true
 		};
 	} forEach _vestItems;

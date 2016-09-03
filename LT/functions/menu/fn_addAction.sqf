@@ -26,5 +26,5 @@ _obj addAction ["<t color='#9B00C1'>Loadout Transfer</t>",
  	[_load, _transfer, _arsenal, _manageLoadouts, _adminOptions] spawn LT_fnc_mainMenuLoad;
 
 
- }, _this, 0, false];
+ }, _this, 1.5, true, true, "", "_target distance _this < 5"];
 
