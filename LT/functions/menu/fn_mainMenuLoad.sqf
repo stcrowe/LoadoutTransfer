@@ -47,11 +47,11 @@ if (typeName _load == typeName true) then
 		};
 		case 1:
 		{
-			player setVariable ["LT_loadServer", _x];
+			player setVariable ["LT_missionLoadouts", _x];
 		};
 		case 2:
 		{
-			player setVariable ["LT_missionLoadouts", _x];
+			player setVariable ["LT_loadServer", _x];
 		};
 
 	};
