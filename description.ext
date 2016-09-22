@@ -1,8 +1,8 @@
-
+#include "LT\LTcommon.hpp"
 #include "LT\LTmenu.hpp"
 class CfgFunctions
 {
-#include "LT\cfgfunctions.hpp"
+	#include "LT\cfgfunctions.hpp"
 };
 
 

@@ -2,8 +2,6 @@
 	Loosely based off Bryan "Tonic" Boardwine's LT addon, and I use the term loosely liberally
 */
 
-#include "LTcommon.hpp"
-
 class LT_TransferMenu
 {
 	idd = 2560;

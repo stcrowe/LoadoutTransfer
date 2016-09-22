@@ -16,6 +16,8 @@ class CfgPatches
 		url = "https://forums.bistudio.com/topic/184651-loadout-transfer/";
 		requiredVersion = 1.60;
 		requiredAddons[] = {};
+		units[] = {};
+		weapons[] = {};
 	};
 };
 
